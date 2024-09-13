@@ -1,19 +1,16 @@
 name: Reusable Workflow
-
 on:
   workflow_call:
     inputs:
       file_name:
         required: true
         type: string
-
 jobs:
   check-file:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Check if file exists
         run: |
           if [ -f "${{ inputs.file_name }}" ]; then
